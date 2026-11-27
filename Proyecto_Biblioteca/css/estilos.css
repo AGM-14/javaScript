@@ -1,0 +1,141 @@
+:root {
+    --color-principal: rgb(23, 23, 80);
+    --color-fondo: #648cb0;
+    --color-disponible: green;
+    --color-prestado: red;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: var(--color-fondo);
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 1rem;
+    background-color: var(--color-principal);
+    color: white;
+}
+
+section {
+    margin-bottom: 2rem;
+    scroll-margin-top: 7rem;
+}
+
+header h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: 2rem;
+}
+
+header nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+nav a {
+    color: white;
+}
+
+nav a:hover,
+nav a:focus {
+    background-color: yellow;
+    color: black;
+}
+
+main {
+    max-width: 70rem;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.panel-estadisticas {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+section h2 {
+    font-size: 1.5rem;
+}
+
+.rejilla {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.tarjeta {
+    position: relative;
+    width: 15rem;
+    padding: 1rem;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 0.5rem;
+}
+
+.tarjeta:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+.tarjeta:hover {
+    background-color: lightyellow;
+}
+
+.tarjeta.disponible {
+    border-color: var(--color-disponible);
+}
+
+.tarjeta.prestado {
+    border-color: var(--color-prestado);
+}
+
+.tarjeta h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.autor {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.datos {
+    margin: 0.5rem 0;
+    font-size: 0.8rem;
+}
+
+.estado {
+    margin: 0;
+    font-weight: bold;
+}
+
+.etiqueta {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+    color: white;
+    background-color: red;
+}
+
+footer {
+    padding: 1rem;
+    text-align: center;
+}

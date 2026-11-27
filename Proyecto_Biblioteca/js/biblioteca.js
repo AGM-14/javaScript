@@ -49,7 +49,7 @@ export class Biblioteca {
      * @returns {Libro[]} Libros con ese estado.
      */
 
-    filtrarporDisponibilidad(disponible) {
+    filtrarPorDisponibilidad(disponible) {
         return this.libros.filter((l) => l.disponible === disponible);
     }
 
@@ -139,4 +139,29 @@ export class Biblioteca {
         };
     }
 
+    
+    
 }
+    
+/**
+ * Catálogo inicial de la biblioteca.
+ * @type {Biblioteca}
+ */
+export const catalogo = new Biblioteca();
+
+catalogo.agregar(new Libro("El Quijote", "Miguel de Cervantes", 1605, 863, "novela"));
+catalogo.agregar(new Libro("La casa de Bernarda Alba", "Federico García Lorca", 1945, 120, "teatro", false));
+catalogo.agregar(new Libro("Niebla", "Miguel de Unamuno", 1914, 280, "novela"));
+catalogo.agregar(new Libro("Rimas y leyendas", "Gustavo Adolfo Bécquer", 1871, 220, "poesía"));
+catalogo.agregar(new Libro("La Regenta", "Leopoldo Alas Clarín", 1885, 750, "novela", false));
+catalogo.agregar(new Libro("Campos de Castilla", "Antonio Machado", 1912, 180, "poesía"));
+catalogo.agregar(new Libro("Bodas de sangre", "Federico García Lorca", 1933, 110, "teatro"));
+catalogo.agregar(new Libro("Meditaciones del Quijote", "José Ortega y Gasset", 1914, 190, "ensayo", false));
+
+catalogo.cargarDesdeTexto(`Luces de bohemia;Ramón del Valle-Inclán;1924;160;teatro;si
+Fortunata y Jacinta;Benito Pérez Galdós;1887;1000;novela;no
+La colmena;Camilo José Cela;1951;320;novela;si
+España invertebrada;José Ortega y Gasset;1921;150;ensayo;si`);
+
+
+

@@ -1,6 +1,8 @@
+/**
+ * Representa un libro del catálogo.
+ */
 export class Libro {
-
- /**
+    /**
      * Crea un libro.
      * @param {string} titulo - Título del libro.
      * @param {string} autor - Autor del libro.
@@ -9,8 +11,7 @@ export class Libro {
      * @param {string} genero - Género (novela, teatro, poesía...).
      * @param {boolean} [disponible=true] - Si está disponible para préstamo.
      */
-
-constructor(titulo, autor, anio, paginas, genero, disponible) {
+    constructor(titulo, autor, anio, paginas, genero, disponible = true) {
         this.titulo = titulo;
         this.autor = autor;
         this.anio = anio;
@@ -19,37 +20,43 @@ constructor(titulo, autor, anio, paginas, genero, disponible) {
         this.disponible = disponible;
     }
 
-prestarLibro() {
-    if (!this.disponible) {
-        return 'El libro no está disponible para préstamo.';
-    }
+    /**
+     * Marca el libro como prestado.
+     * @returns {boolean} true si se ha prestado, false si ya estaba prestado.
+     */
+    prestar() {
+        if (!this.disponible) {
+            return false;
+        }
         this.disponible = false;
-        return 'El libro esta disponible para préstamo, disfrutalo.';   
-    
-}
+        return true;
+    }
 
-devolverLibro() {
-    if (this.disponible) {
-        return 'El libro ya ha sido devuelto.';
-    }      
-      this.disponible = true;
-    return 'El libro ha sido devuelto y ahora está disponible.';
-    
-}
+    /**
+     * Marca el libro como disponible.
+     * @returns {boolean} true si se ha devuelto, false si ya estaba disponible.
+     */
+    devolver() {
+        if (this.disponible) {
+            return false;
+        }
+        this.disponible = true;
+        return true;
+    }
 
+    /**
+     * Calcula los años transcurridos desde la publicación.
+     * @returns {number} Años de antigüedad.
+     */
+    antiguedad() {
+        return new Date().getFullYear() - this.anio;
+    }
 
-verAntiguedad() {
-    
-    const fechaActual = new Date();
-    const anioActual = fechaActual.getFullYear();
-    const antiguedad = anioActual - this.anio;
-    return `El libro tiene ${antiguedad} años de antigüedad.`;
-
-}
-
-resumenLibro() {
-    return `Título: ${this.titulo}, Autor: ${this.autor}, Año: ${this.anio}, Páginas: ${this.paginas}, Género: ${this.genero}` + ' ' + this.verAntiguedad();
-    
-}
-
+    /**
+     * Devuelve un resumen del libro en una línea.
+     * @returns {string} Texto del tipo «Niebla — Miguel de Unamuno (1914)».
+     */
+    resumen() {
+        return `${this.titulo} — ${this.autor} (${this.anio})`;
+    }
 }
